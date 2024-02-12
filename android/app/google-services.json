@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "360402965589",
+    "project_id": "thehive-220c0",
+    "storage_bucket": "thehive-220c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360402965589:android:6bae394ba1be239ad930dc",
+        "android_client_info": {
+          "package_name": "com.abdullah.sidpec.the.hive.the_hive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfx96QRQZobWyHt5yqzN-PbMfiuigH9Ug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
