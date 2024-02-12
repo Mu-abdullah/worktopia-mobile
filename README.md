@@ -35,7 +35,8 @@ Worktopia is a Flutter application designed to Record employee data and record i
 - flutter_localizations
 - shared_preferences
 
-## Installation soon from play store
+## Installation
+Soon from play store
 
 ## Usage
 It helps to collect employee data in an easy way and can be referred to at any time 
