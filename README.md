@@ -1,6 +1,6 @@
 # Worktopia
 
-Worktopia is a Flutter application designed to [brief description of your app's purpose].
+Worktopia is a Flutter application designed to Record employee data and record it for reference at any time using Firebase.
 
 ## Table of Contents
 - [Description](#description)
@@ -8,12 +8,10 @@ Worktopia is a Flutter application designed to [brief description of your app's 
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Additional Notes](#additional-notes)
 
 ## Description
-Worktopia is a Flutter application designed to [provide a brief overview of what your project does and its purpose].
+Worktopia is a Flutter application designed to Record employee data and record it for reference at any time using Firebase.
 
 ## Features
 - Implements Cubit for state management.
@@ -37,17 +35,10 @@ Worktopia is a Flutter application designed to [provide a brief overview of what
 - flutter_localizations
 - shared_preferences
 
-## Installation
-[Include instructions on how to install and set up your project.]
+## Installation soon from play store
 
 ## Usage
-[Explain how users can utilize your project, including any commands or steps needed.]
-
-## Contributing
-[Specify guidelines for contributors if you welcome collaboration.]
-
-## License
-[Indicate the license under which your project is released.]
+It helps to collect employee data in an easy way and can be referred to at any time 
 
 ## Additional Notes
-[Include any other relevant information about your project.]
+Extract a web version in JavaScript and publish it on GitHub Pages
