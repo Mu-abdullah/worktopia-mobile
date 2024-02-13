@@ -35,10 +35,10 @@ class EmpImage extends StatelessWidget {
               child: Center(
                 child: IconButton(
                   onPressed: () {
-                    cubit.getImageFromPc();
+                    cubit.whichPaltform();
                   },
                   icon: const Icon(
-                    kIsWeb ?Icons.add : Iconsax.add_circle5,
+                    kIsWeb ? Icons.add : Iconsax.add_circle5,
                     size: 35,
                   ),
                 ),

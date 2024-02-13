@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as fire_storage;
@@ -27,6 +27,14 @@ class NewEmpCubit extends Cubit<NewEmpState> {
   String? departmentValue;
   String? departmentId;
   List<String> department = departmentItems;
+
+  void whichPaltform() {
+    if (kIsWeb == true) {
+      getImageFromPc();
+    } else {
+      getImage();
+    }
+  }
 
   Future<void> getImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
