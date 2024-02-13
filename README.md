@@ -1,16 +1,45 @@
-# the_hive
+# Worktopia
 
-A new Flutter project.
+Worktopia is a Flutter application designed to Record employee data and record it for reference at any time using Firebase.
 
-## Getting Started
+## Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Additional Notes](#additional-notes)
 
-This project is a starting point for a Flutter application.
+## Description
+Worktopia is a Flutter application designed to Record employee data and record it for reference at any time using Firebase.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- Implements Cubit for state management.
+- Follows MVVM (Model-View-ViewModel) architecture.
+- Utilizes Firebase Authentication for user authentication.
+- Integrates Firebase Cloud Firestore for data storage.
+- Uses Firebase Core for core functionalities.
+- Incorporates Firebase Storage for storing user files.
+- Implements file picker and image picker functionalities.
+- Utilizes flutter_localizations for internationalization and localization.
+- Integrates shared_preferences for simple key-value pair storage.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technologies Used
+- Flutter
+- Firebase Auth
+- Firebase Cloud Firestore
+- Firebase Core
+- Firebase Storage
+- File Picker
+- Image Picker
+- flutter_localizations
+- shared_preferences
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+Soon from play store
+
+## Usage
+It helps to collect employee data in an easy way and can be referred to at any time 
+
+## Additional Notes
+Extract a web version in JavaScript and publish it on GitHub Pages
