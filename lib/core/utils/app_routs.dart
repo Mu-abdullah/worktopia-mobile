@@ -1,5 +1,5 @@
-
 import 'package:go_router/go_router.dart';
+import 'package:worktopia/features/app/emps_screen/presentation/views/widgets/departmets_detailes_botton_sheet.dart';
 
 import '../../features/app/auth/views/auth_screen.dart';
 import '../../features/app/emps_screen/presentation/views/employees.dart';
@@ -23,6 +23,7 @@ abstract class AppRouter {
   static const editEmpScreen = '/editEmpScreen';
   static const authScreen = '/authScreen';
   static const splashScreen = '/splashScreen';
+  static const departmentDetiles = '/departmentDetiles';
 
   static final router = GoRouter(
     initialLocation: splashScreen,
@@ -63,6 +64,12 @@ abstract class AppRouter {
       GoRoute(
         path: editeDepartmentScreen,
         builder: (context, state) => EditDepartmentScreen(
+          model: state.extra as DepartmentsModel,
+        ),
+      ),
+      GoRoute(
+        path: departmentDetiles,
+        builder: (context, state) => DepartmentDetilesScreen(
           model: state.extra as DepartmentsModel,
         ),
       ),

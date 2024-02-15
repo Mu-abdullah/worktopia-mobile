@@ -63,7 +63,7 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
                   (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
-                    expandedHeight: 100,
+                    expandedHeight: kIsWeb ? 100 : 150,
                     floating: false,
                     pinned: true,
                     flexibleSpace: FlexibleSpaceBar(

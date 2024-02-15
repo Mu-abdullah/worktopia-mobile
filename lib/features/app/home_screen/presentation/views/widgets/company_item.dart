@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:worktopia/core/utils/app_routs.dart';
 
 import '../../../../../../core/entites/department_model.dart';
 import '../../../../../../core/utils/colors.dart';
 import '../../../../../../core/widgets/default_texts.dart';
-import '../../../../emps_screen/presentation/views/widgets/departmets_detailes_botton_sheet.dart';
 
 class CompanyItem extends StatelessWidget {
   const CompanyItem({
@@ -16,19 +16,20 @@ class CompanyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(20),
-            ),
-          ),
-          isScrollControlled: true,
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          builder: (context) => DepartmentDetilesBotttomSheet(
-            model: model,
-          ),
-        );
+        GoRouter.of(context).push(AppRouter.departmentDetiles, extra: model);
+        // showModalBottomSheet(
+        //   context: context,
+        //   shape: const RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.vertical(
+        //       top: Radius.circular(20),
+        //     ),
+        //   ),
+        //   isScrollControlled: true,
+        //   clipBehavior: Clip.antiAliasWithSaveLayer,
+        //   builder: (context) => DepartmentDetilesBotttomSheet(
+        //     model: model,
+        //   ),
+        // );
       },
       title: TitleText(
         text: model.departmentCompanyForNow!,

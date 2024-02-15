@@ -11,7 +11,7 @@ class CompanyInfo extends StatelessWidget {
     required this.widget,
   });
 
-  final DepartmentDetilesBotttomSheet widget;
+  final DepartmentDetilesScreen widget;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,12 @@ class CompanyInfo extends StatelessWidget {
           ? [const SizedBox(height: 10), const TitleText(text: "عقد عملية")]
           : [
               CustomDivider(
-                indent: 0,
-                endIndent: CustomSize.width(context, .35),
+                indent: CustomSize.width(context, .15),
+                endIndent: CustomSize.width(context, .15),
               ),
               const SizedBox(height: 5),
               const TitleText(text: "الراتب"),
-              const SizedBox(height: 5),
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               TitleText(
                 text:
                     "ما يتقاضاه المقاول عن العامل: ${widget.model.companySalaryFroEmp!.toString()} جنيه",
@@ -42,8 +41,8 @@ class CompanyInfo extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               CustomDivider(
-                indent: 0,
-                endIndent: CustomSize.width(context, .35),
+                indent: CustomSize.width(context, .15),
+                endIndent: CustomSize.width(context, .15),
               ),
               const SizedBox(height: 10),
               const TitleText(text: "اليوم الاضافي"),
@@ -63,8 +62,8 @@ class CompanyInfo extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               CustomDivider(
-                indent: 0,
-                endIndent: CustomSize.width(context, .35),
+                indent: CustomSize.width(context, .15),
+                endIndent: CustomSize.width(context, .15),
               ),
               const SizedBox(height: 10),
               const TitleText(text: "الساعة الاضافية"),

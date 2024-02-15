@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../../core/utils/colors.dart';
-import '../../../../../../../core/utils/constant.dart';
 import '../../../../../../../core/utils/tables_name.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../../../manger/resigned_cubit/resigned_emp_cubit.dart';
@@ -57,52 +56,15 @@ class _ResignedEmpState extends State<ResignedEmp> {
                   .height, // Adjust the height as needed
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  if (constraints.maxWidth <= Constant.mobileWidth) {
-                    return ListView.builder(
-                      itemCount: state.departments.length,
-                      itemBuilder: (context, index) {
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  } else if (constraints.maxWidth <= Constant.tabletWidth) {
-                    return GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Number of columns
-                        mainAxisSpacing: 0, // Spacing between rows
-                      ),
-
-                      itemCount:
-                          state.departments.length, // Total number of items
-                      itemBuilder: (BuildContext context, int index) {
-                        // Generating items lazily
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  } else {
-                    return GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, // Number of columns
-                        mainAxisSpacing: 0, // Spacing between rows
-                      ),
-                      itemCount:
-                          state.departments.length, // Total number of items
-                      itemBuilder: (BuildContext context, int index) {
-                        // Generating items lazily
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  }
+                  return ListView.builder(
+                    itemCount: state.departments.length,
+                    itemBuilder: (context, index) {
+                      return EmployeeItem(
+                        scoop: widget.scoop,
+                        emp: state.departments[index],
+                      );
+                    },
+                  );
                 },
               ),
             );
