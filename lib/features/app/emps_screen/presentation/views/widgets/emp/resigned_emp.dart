@@ -50,22 +50,25 @@ class _ResignedEmpState extends State<ResignedEmp> {
             return const Center(
                 child: TitleText(text: "لا يوجد حالياً أي عمالة استقالت"));
           } else {
-            return SizedBox(
-              height: MediaQuery.of(context)
-                  .size
-                  .height, // Adjust the height as needed
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return ListView.builder(
-                    itemCount: state.departments.length,
-                    itemBuilder: (context, index) {
-                      return EmployeeItem(
-                        scoop: widget.scoop,
-                        emp: state.departments[index],
-                      );
-                    },
-                  );
-                },
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context)
+                    .size
+                    .height, // Adjust the height as needed
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return ListView.builder(
+                      itemCount: state.departments.length,
+                      itemBuilder: (context, index) {
+                        return EmployeeItem(
+                          scoop: widget.scoop,
+                          emp: state.departments[index],
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             );
           }

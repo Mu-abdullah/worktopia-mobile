@@ -15,6 +15,7 @@ class BottomSheetEMPName extends StatelessWidget {
   Widget build(BuildContext context) {
     return TitleText(
       text: widget.model.empName!,
+      maxLine: 2,
       titleSize: 29,
     );
   }

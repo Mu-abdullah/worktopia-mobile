@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../../core/utils/colors.dart';
-import '../../../../../../../core/utils/constant.dart';
 import '../../../../../../../core/utils/tables_name.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../../../manger/termination_cubit/termination_emp_cubit.dart';
@@ -51,13 +50,14 @@ class _TerminationEmpState extends State<TerminationEmp> {
             return const Center(
                 child: TitleText(text: "لا يوجد حالياً أي عمالة تم استبعادها"));
           } else {
-            return SizedBox(
-              height: MediaQuery.of(context)
-                  .size
-                  .height, // Adjust the height as needed
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth <= Constant.mobileWidth) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context)
+                    .size
+                    .height, // Adjust the height as needed
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
                     return ListView.builder(
                       itemCount: state.departments.length,
                       itemBuilder: (context, index) {
@@ -67,43 +67,8 @@ class _TerminationEmpState extends State<TerminationEmp> {
                         );
                       },
                     );
-                  } else if (constraints.maxWidth <= Constant.tabletWidth) {
-                    return GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Number of columns
-                        mainAxisSpacing: 0, // Spacing between rows
-                      ),
-
-                      itemCount:
-                          state.departments.length, // Total number of items
-                      itemBuilder: (BuildContext context, int index) {
-                        // Generating items lazily
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  } else {
-                    return GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4, // Number of columns
-                        mainAxisSpacing: 0, // Spacing between rows
-                      ),
-                      itemCount:
-                          state.departments.length, // Total number of items
-                      itemBuilder: (BuildContext context, int index) {
-                        // Generating items lazily
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  }
-                },
+                  },
+                ),
               ),
             );
           }

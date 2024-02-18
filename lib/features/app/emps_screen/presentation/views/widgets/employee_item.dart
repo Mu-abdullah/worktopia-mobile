@@ -28,7 +28,7 @@ class _EmployeeItemState extends State<EmployeeItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 10,
+      elevation: 5,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -82,13 +82,20 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   minRadius: 30,
                   backgroundImage: NetworkImage(widget.emp.empImage!),
                 ),
-                subtitle: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: TitleText(
-                    isTitle: false,
-                    text: widget.emp.scoop!,
-                    subTitleColor: AppColor.blackColor.withOpacity(.5),
-                  ),
+                subtitle: Row(
+                  children: [
+                    TitleText(
+                      isTitle: false,
+                      text: "رقم القيد: ${widget.emp.empId!}",
+                      subTitleColor: AppColor.blackColor.withOpacity(.5),
+                    ),
+                    const Spacer(),
+                    TitleText(
+                      isTitle: false,
+                      text: widget.emp.scoop!,
+                      subTitleColor: AppColor.blackColor.withOpacity(.5),
+                    ),
+                  ],
                 ),
               ),
             ),

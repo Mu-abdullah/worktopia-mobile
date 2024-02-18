@@ -50,19 +50,21 @@ class _CurrentEmpState extends State<CurrentEmp> {
               child: TitleText(text: "لا يوجد حالياً أي عمالة تم تسجيلها"),
             );
           } else {
-            return SizedBox(
-              height: MediaQuery.of(context)
-                  .size
-                  .height, // Adjust the height as needed
-              child: ListView.builder(
-                
-                itemCount: state.departments.length,
-                itemBuilder: (context, index) {
-                  return EmployeeItem(
-                    scoop: widget.scoop,
-                    emp: state.departments[index],
-                  );
-                },
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context)
+                    .size
+                    .height, // Adjust the height as needed
+                child: ListView.builder(
+                  itemCount: state.departments.length,
+                  itemBuilder: (context, index) {
+                    return EmployeeItem(
+                      scoop: widget.scoop,
+                      emp: state.departments[index],
+                    );
+                  },
+                ),
               ),
             );
           }
