@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/entites/department_model.dart';
@@ -13,6 +12,7 @@ import 'bottom_sheet_emp_data/bottom_sheet_phone_number.dart';
 import 'bottom_sheet_emp_data/bottom_sheet_scoop.dart';
 import 'bottom_sheet_emp_data/bottom_sheet_bottons.dart';
 import 'bottom_sheet_emp_data/bottom_sheet_emp_name.dart';
+import 'bottom_sheet_emp_data/bottom_sheet_startjob.dart';
 import 'on_work_info.dart';
 import 'termenation_resigend.dart';
 
@@ -46,6 +46,8 @@ class _EmpBottomSheetState extends State<EmpBottomSheet> {
           const SizedBox(height: 5),
           BottomSheetEMPStatus(widget: widget),
           const SizedBox(height: 5),
+          BottomSheetStartJob(widget: widget),
+          const SizedBox(height: 5),
           BottomSheetEMPID(widget: widget),
           const SizedBox(height: 5),
           BottomSheetEMPScoop(widget: widget),
@@ -68,6 +70,3 @@ class _EmpBottomSheetState extends State<EmpBottomSheet> {
     );
   }
 }
-
-
-

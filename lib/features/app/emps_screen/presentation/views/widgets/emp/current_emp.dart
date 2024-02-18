@@ -55,6 +55,7 @@ class _CurrentEmpState extends State<CurrentEmp> {
                   .size
                   .height, // Adjust the height as needed
               child: ListView.builder(
+                
                 itemCount: state.departments.length,
                 itemBuilder: (context, index) {
                   return EmployeeItem(

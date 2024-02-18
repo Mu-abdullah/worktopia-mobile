@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:worktopia/core/utils/app_routs.dart';
 
 import '../../../../../../../core/utils/colors.dart';
 import '../emp_bottom_sheet.dart';
@@ -13,18 +15,23 @@ class BottomSheetEMPImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: CircleAvatar(
-        maxRadius: 105,
-        minRadius: 100,
-        backgroundColor: AppColor.yellowColor,
+    return InkWell(
+      onTap: () {
+        GoRouter.of(context)
+            .push(AppRouter.imagePreview, extra: widget.model.empImage);
+      },
+      child: Align(
+        alignment: Alignment.centerRight,
         child: CircleAvatar(
-          maxRadius: 100,
-          minRadius: 49,
-          backgroundImage:
-          NetworkImage(
-            widget.model.empImage!,
+          maxRadius: 105,
+          minRadius: 100,
+          backgroundColor: AppColor.yellowColor,
+          child: CircleAvatar(
+            maxRadius: 100,
+            minRadius: 49,
+            backgroundImage: NetworkImage(
+              widget.model.empImage!,
+            ),
           ),
         ),
       ),

@@ -16,6 +16,8 @@ class ResignedEmpCubit extends Cubit<ResignedEmpState> {
     emit(Loading());
     try {
       List<EmpsModels> empList = await _getEmpList(departmentId);
+              empList.sort((a, b) => a.empId!.compareTo(b.empId!));
+
       emit(SuccessSubCollection(empList));
     } catch (e) {
       emit(FailedSubCollection(e.toString()));

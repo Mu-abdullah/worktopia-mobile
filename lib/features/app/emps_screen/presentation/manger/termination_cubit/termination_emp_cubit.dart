@@ -11,13 +11,14 @@ class TerminationEmpCubit extends Cubit<TerminationEmpState> {
 
   static TerminationEmpCubit get(context) => BlocProvider.of(context);
 
-  
   final FirebaseService _service = FirebaseService();
 
   Future<void> fetchEmpCompanies({required String departmentId}) async {
     emit(Loading());
     try {
       List<EmpsModels> empList = await _getEmpList(departmentId);
+      empList.sort((a, b) => a.empId!.compareTo(b.empId!));
+
       emit(SuccessSubCollection(empList));
     } catch (e) {
       emit(FailedSubCollection(e.toString()));

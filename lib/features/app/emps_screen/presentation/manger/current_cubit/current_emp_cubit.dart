@@ -37,11 +37,11 @@ class CurrentEmpCubit extends Cubit<CurrentEmpState> {
     if (data != null && data.docs.isNotEmpty) {
       for (var employeeDoc in data.docs) {
         EmpsModels data = EmpsModels.fromDocumentSnapshot(employeeDoc);
+        empList.sort((a, b) => a.empId!.compareTo(b.empId!));
+
         empList.add(data);
       }
     }
     return empList;
   }
-
-
 }
