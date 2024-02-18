@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
@@ -14,10 +15,23 @@ class BottomSheetEMPPhoneNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TitleText(
-      text: "رقم الهاتف: ${widget.model.empPhoneNumber!}",
-      subTitleColor: AppColor.blackColor.withOpacity(.7),
-      isTitle: false,
+    return InkWell(
+      onTap: () {
+        _makePhoneCall(widget.model.empPhoneNumber.toString());
+      },
+      child: TitleText(
+        text: "رقم الهاتف: ${widget.model.empPhoneNumber!}",
+        subTitleColor: AppColor.blackColor.withOpacity(.7),
+        isTitle: false,
+      ),
     );
+  }
+
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
   }
 }
