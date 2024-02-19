@@ -38,8 +38,8 @@ class EditEndJob extends StatelessWidget {
           showDatePicker(
                   context: context,
                   initialDate: DateTime.now(),
-                  firstDate: DateTime.parse("2020-01-01"),
-                  lastDate: DateTime.parse('2030-12-31'))
+                  firstDate: DateTime.parse("2000-01-01"),
+                lastDate: DateTime.parse('2060-12-31'))
               .then((value) {
             endJob.text = DateFormat.yMMMd().format(value!);
           });

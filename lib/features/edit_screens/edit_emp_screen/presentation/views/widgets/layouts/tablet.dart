@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../manger/cubit/edit_emp_cubit.dart';
@@ -13,7 +12,6 @@ import '../form_feiled/edit_phone_number.dart';
 import '../form_feiled/edit_start_job.dart';
 import '../image_edit.dart';
 import '../job_status.dart';
-
 
 class EditEmpTabletLayout extends StatelessWidget {
   const EditEmpTabletLayout({
@@ -130,19 +128,29 @@ class EditEmpTabletLayout extends StatelessWidget {
                 startJob: startJob,
                 wanted: _wanted,
               ),
-            ),const SizedBox(width: 10),
+            ),
+            const SizedBox(width: 10),
             Expanded(
-              child: EditEndJob(
-                endJob: endJob,
-                wanted: _wanted,
-                cubit: cubit,
+              child: SizedBox(
+                child: cubit.jobStatus == "على قوة العمل" ||
+                        cubit.jobStatus == null
+                    ? null
+                    : EditEndJob(
+                        endJob: endJob,
+                        wanted: _wanted,
+                        cubit: cubit,
+                      ),
               ),
             ),
           ],
         ),
         const SizedBox(height: 10),
-        EndJobReaseon(
-            cubit: cubit, endJobReaseon: endJobReaseon, wanted: _wanted),
+        SizedBox(
+          child: cubit.jobStatus == "على قوة العمل" || cubit.jobStatus == null
+              ? null
+              : EndJobReaseon(
+                  cubit: cubit, endJobReaseon: endJobReaseon, wanted: _wanted),
+        ),
         const SizedBox(height: 10),
       ],
     );

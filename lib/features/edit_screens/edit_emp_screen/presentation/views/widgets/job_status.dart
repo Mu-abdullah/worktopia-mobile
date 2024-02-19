@@ -73,6 +73,7 @@ class JobStatus extends StatelessWidget {
 
                   onChanged: (String? newValue) {
                     cubit.changeJobStatus(newValue);
+                    
                   },
                 ),
               ),

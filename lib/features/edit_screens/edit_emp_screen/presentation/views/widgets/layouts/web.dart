@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../manger/cubit/edit_emp_cubit.dart';
@@ -69,7 +68,9 @@ class EditEmpWebLayout extends StatelessWidget {
                 name: name,
                 wanted: _wanted,
               ),
-            ), const SizedBox(width: 10), Expanded(
+            ),
+            const SizedBox(width: 10),
+            Expanded(
               child: EditAdrress(
                 address: address,
                 wanted: _wanted,
@@ -78,7 +79,6 @@ class EditEmpWebLayout extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-
         Row(
           children: [
             Expanded(
@@ -93,7 +93,9 @@ class EditEmpWebLayout extends StatelessWidget {
                 banckAcc: bankAcc,
                 wanted: _wanted,
               ),
-            ),  const SizedBox(width: 10),  Expanded(
+            ),
+            const SizedBox(width: 10),
+            Expanded(
               child: EditPhoneNumber(
                 phone: phone,
                 wanted: _wanted,
@@ -102,8 +104,6 @@ class EditEmpWebLayout extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-
-
         Row(
           children: [
             Expanded(
@@ -111,25 +111,39 @@ class EditEmpWebLayout extends StatelessWidget {
                 cubit: cubit,
                 jobStatus: jobStatus,
               ),
-            ),const SizedBox(width: 10),
+            ),
+            const SizedBox(width: 10),
             Expanded(
               child: EditStartJob(
                 startJob: startJob,
                 wanted: _wanted,
               ),
-            ),const SizedBox(width: 10),
+            ),
+            const SizedBox(width: 10),
             Expanded(
-              child: EditEndJob(
-                endJob: endJob,
-                wanted: _wanted,
-                cubit: cubit,
+              child: SizedBox(
+                child: cubit.jobStatus == "على قوة العمل" ||
+                        cubit.jobStatus == null
+                    ? null
+                    : EditEndJob(
+                        endJob: endJob,
+                        wanted: _wanted,
+                        cubit: cubit,
+                      ),
               ),
             ),
           ],
         ),
         const SizedBox(height: 10),
-        EndJobReaseon(
-            cubit: cubit, endJobReaseon: endJobReaseon, wanted: _wanted),
+        SizedBox(
+          child: cubit.jobStatus == "على قوة العمل" || cubit.jobStatus == null
+              ? null
+              : EndJobReaseon(
+                  cubit: cubit,
+                  endJobReaseon: endJobReaseon,
+                  wanted: _wanted,
+                ),
+        ),
         const SizedBox(height: 10),
       ],
     );

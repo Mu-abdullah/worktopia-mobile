@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../manger/cubit/edit_emp_cubit.dart';
@@ -13,8 +12,6 @@ import '../form_feiled/edit_phone_number.dart';
 import '../form_feiled/edit_start_job.dart';
 import '../image_edit.dart';
 import '../job_status.dart';
-
-
 
 class EditEmpMobileLayouts extends StatelessWidget {
   const EditEmpMobileLayouts({
@@ -97,14 +94,26 @@ class EditEmpMobileLayouts extends StatelessWidget {
           jobStatus: jobStatus,
         ),
         const SizedBox(height: 10),
-        EditEndJob(
-          endJob: endJob,
-          wanted: _wanted,
-          cubit: cubit,
+        SizedBox(
+          child: cubit.jobStatus == "على قوة العمل" || cubit.jobStatus == null
+              ? null
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    EditEndJob(
+                      endJob: endJob,
+                      wanted: _wanted,
+                      cubit: cubit,
+                    ),
+                    const SizedBox(height: 10),
+                    EndJobReaseon(
+                      cubit: cubit,
+                      endJobReaseon: endJobReaseon,
+                      wanted: _wanted,
+                    ),
+                  ],
+                ),
         ),
-        const SizedBox(height: 10),
-        EndJobReaseon(
-            cubit: cubit, endJobReaseon: endJobReaseon, wanted: _wanted),
         const SizedBox(height: 10),
       ],
     );
