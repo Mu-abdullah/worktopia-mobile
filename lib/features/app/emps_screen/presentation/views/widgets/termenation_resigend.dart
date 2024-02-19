@@ -22,6 +22,7 @@ class ResigendAndTerminationInfo extends StatelessWidget {
           subTitleColor: AppColor.blackColor.withOpacity(.7),
           isTitle: false,
         ),
+        const SizedBox(height: 15),
         TitleText(
           text: "سبب انهاء العمل: ${widget.model.endJobReaseon!}",
           subTitleColor: AppColor.blackColor.withOpacity(.7),

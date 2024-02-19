@@ -20,7 +20,7 @@ class BottomSheetEMPNightShiftExtraHour extends StatelessWidget {
           : TitleText(
               isTitle: false,
               text:
-                  "الساعة الاضافية الليلية: ${widget.departmentsModel.extraNightShiftHourForEmp!.toString()} جنيه",
+                  "اجر الساعة الاضافية الليلية: ${widget.departmentsModel.extraNightShiftHourForEmp!.toString()} جنيه",
               subTitleColor: AppColor.blackColor.withOpacity(.7),
             ),
     );

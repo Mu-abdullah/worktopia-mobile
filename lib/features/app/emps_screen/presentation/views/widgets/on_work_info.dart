@@ -22,21 +22,21 @@ class OnWorkInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           BottomSheetEMPSalaryAndIncentive(widget: widget),
-          const SizedBox(height: 5),
+          const SizedBox(height: 15),
           BottomSheetEMPExtraDay(widget: widget),
           SizedBox(
               height: widget.departmentsModel.extraDayForEmp! == 0
                   ? 0
-                  : 5),
+                  : 15),
           BottomSheetEMPDayExtraHoure(widget: widget),
-          const SizedBox(height: 5),
+          const SizedBox(height: 15),
           BottomSheetEMPNightShiftExtraHour(widget: widget),
           SizedBox(
               height: widget.departmentsModel
                           .extraNightShiftHourForEmp! ==
                       0
                   ? 0
-                  : 5),
+                  : 15),
           BottomSheetEMPBankAcc(widget: widget),
         ],
       );

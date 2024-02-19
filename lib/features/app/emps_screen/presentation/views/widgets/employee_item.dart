@@ -58,20 +58,29 @@ class _EmployeeItemState extends State<EmployeeItem> {
           ),
           InkWell(
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(20),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EmpBottomSheet(
+                    model: widget.emp,
+                    departmentsModel: department,
                   ),
                 ),
-                isScrollControlled: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                builder: (context) => EmpBottomSheet(
-                  model: widget.emp,
-                  departmentsModel: department,
-                ),
               );
+              // showModalBottomSheet(
+              //   context: context,
+              //   shape: const RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.vertical(
+              //       top: Radius.circular(20),
+              //     ),
+              //   ),
+              //   isScrollControlled: true,
+              //   clipBehavior: Clip.antiAliasWithSaveLayer,
+              //   builder: (context) => EmpBottomSheet(
+              //     model: widget.emp,
+              //     departmentsModel: department,
+              //   ),
+              // );
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),

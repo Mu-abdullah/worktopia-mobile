@@ -22,7 +22,7 @@ class BottomSheetEMPSalaryAndIncentive extends StatelessWidget {
           text: haveSalary(),
           subTitleColor: AppColor.blackColor.withOpacity(.7),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 15),
         TitleText(
           isTitle: false,
           text:

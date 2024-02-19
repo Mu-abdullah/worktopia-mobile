@@ -30,7 +30,7 @@ class BottomSheetEMPExtraDay extends StatelessWidget {
     if (widget.departmentsModel.extraDayForEmp! == 0) {
       return "اليوم الاضافي: عقد عملية لا يوجد مقابل لليوم الاضافي";
     } else {
-      return "اليوم الاضافي: ${widget.departmentsModel.extraDayForEmp!.round()} جنيه";
+      return "اجر اليوم الاضافي: ${widget.departmentsModel.extraDayForEmp!.round()} جنيه";
     }
   }
 }

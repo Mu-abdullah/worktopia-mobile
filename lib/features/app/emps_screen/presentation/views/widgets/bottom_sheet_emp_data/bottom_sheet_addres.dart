@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../emp_bottom_sheet.dart';
+
 class BottomSheetEMPAddress extends StatelessWidget {
   const BottomSheetEMPAddress({
     super.key,
@@ -17,6 +18,7 @@ class BottomSheetEMPAddress extends StatelessWidget {
       isTitle: false,
       text: "العنوان: ${widget.model.empAddress}",
       subTitleColor: AppColor.blackColor.withOpacity(.7),
+      maxLine: 2,
     );
   }
 }

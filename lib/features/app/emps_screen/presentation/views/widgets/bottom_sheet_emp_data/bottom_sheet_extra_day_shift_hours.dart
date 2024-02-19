@@ -20,7 +20,7 @@ class BottomSheetEMPDayExtraHoure extends StatelessWidget {
           : TitleText(
               isTitle: false,
               text:
-                  "الساعة الاضافية  ${widget.departmentsModel.extraHourForEmp!.toString()} جنيه",
+                  "اجر الساعة الاضافية  ${widget.departmentsModel.extraHourForEmp!.toString()} جنيه",
               subTitleColor: AppColor.blackColor.withOpacity(.7),
             ),
     );
