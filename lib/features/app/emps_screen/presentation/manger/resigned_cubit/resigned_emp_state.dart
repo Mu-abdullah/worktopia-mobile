@@ -7,7 +7,7 @@ class ResignedEmpInitial extends ResignedEmpState {}
 class Loading extends ResignedEmpState {}
 
 class SuccessSubCollection extends ResignedEmpState {
-  List<EmpsModels> departments;
+  List<EmployeesModel> departments;
   SuccessSubCollection(this.departments);
 }
 

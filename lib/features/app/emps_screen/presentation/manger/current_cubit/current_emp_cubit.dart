@@ -17,15 +17,15 @@ class CurrentEmpCubit extends Cubit<CurrentEmpState> {
   Future<void> fetchEmpCompanies({required String departmentId}) async {
     emit(Loading());
     try {
-      List<EmpsModels> empList = await _getEmpList(departmentId);
+      List<EmployeesModel> empList = await _getEmpList(departmentId);
       emit(SuccessSubCollection(empList));
     } catch (e) {
       emit(FailedSubCollection(e.toString()));
     }
   }
 
-  Future<List<EmpsModels>> _getEmpList(String departmentId) async {
-    List<EmpsModels> empList = [];
+  Future<List<EmployeesModel>> _getEmpList(String departmentId) async {
+    List<EmployeesModel> empList = [];
 
     QuerySnapshot? data = await _service.getSubCollectionData(
       departmentCollection: FBFirestoreName.departmentCollection,
@@ -36,7 +36,7 @@ class CurrentEmpCubit extends Cubit<CurrentEmpState> {
 
     if (data != null && data.docs.isNotEmpty) {
       for (var employeeDoc in data.docs) {
-        EmpsModels data = EmpsModels.fromDocumentSnapshot(employeeDoc);
+        EmployeesModel data = EmployeesModel.fromDocumentSnapshot(employeeDoc);
         empList.sort((a, b) => a.empId!.compareTo(b.empId!));
 
         empList.add(data);

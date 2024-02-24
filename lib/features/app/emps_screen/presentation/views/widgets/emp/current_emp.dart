@@ -56,14 +56,26 @@ class _CurrentEmpState extends State<CurrentEmp> {
                 height: MediaQuery.of(context)
                     .size
                     .height, // Adjust the height as needed
-                child: ListView.builder(
-                  itemCount: state.departments.length,
-                  itemBuilder: (context, index) {
-                    return EmployeeItem(
-                      scoop: widget.scoop,
-                      emp: state.departments[index],
-                    );
-                  },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      child:
+                          state.departments.isEmpty ? null : _empCount(state),
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: state.departments.length,
+                        itemBuilder: (context, index) {
+                          return EmployeeItem(
+                            scoop: widget.scoop,
+                            emp: state.departments[index],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
@@ -80,5 +92,11 @@ class _CurrentEmpState extends State<CurrentEmp> {
         }
       },
     );
+  }
+
+  TitleText _empCount(SuccessSubCollection state) {
+    return TitleText(
+        text:
+            "عدد العمالة الحالي : ${state.departments.length.toString()} عامل");
   }
 }

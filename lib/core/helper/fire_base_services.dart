@@ -62,7 +62,7 @@ class FirebaseService {
 
   Future<void> createEmp({
     required String departmentId,
-    required EmpsModels employeeData,
+    required EmployeesModel employeeData,
     required String empID,
   }) async {
     final CollectionReference empCollection = departmentCollection
@@ -76,7 +76,7 @@ class FirebaseService {
 
   Future<void> updateEmp({
     required String departmentId,
-    required EmpsModels employeeData,
+    required EmployeesModel employeeData,
     required String empID,
   }) async {
     final CollectionReference empCollection = departmentCollection
@@ -176,5 +176,47 @@ class FirebaseService {
       return employeeSnapshot;
     }
     return null;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////Search COLLECTION DATA////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  Future<QuerySnapshot?> searchEmp({
+    required String departmentId,
+    required String departmentCollection,
+    required String subCollection,
+    String? empName,
+    String? empId,
+    String? empNId,
+    String? empPhoneNumber,
+  }) async {
+    try {
+      Query query = _firestore
+          .collection(departmentCollection)
+          .doc(departmentId)
+          .collection(subCollection);
+
+      if (empName != null) {
+        query = query.where('empName', isEqualTo: empName);
+      }
+      if (empId != null) {
+        query = query.where('empId', isEqualTo: empId);
+      }
+      if (empNId != null) {
+        query = query.where('empNId', isEqualTo: empNId);
+      }
+      if (empPhoneNumber != null) {
+        query = query.where('empPhoneNumber', isEqualTo: empPhoneNumber);
+      }
+
+      QuerySnapshot employeeSnapshot = await query.get();
+
+      employeeSnapshot.docs.map((doc) => doc.data()).toList();
+
+      return employeeSnapshot.docs.isNotEmpty ? employeeSnapshot : null;
+    } catch (e) {
+      // print('Error searching employees: $e');
+      return null;
+    }
   }
 }

@@ -153,7 +153,7 @@ class NewEmpCubit extends Cubit<NewEmpState> {
   }
 
   Future<void> addEmpInfo({
-    required EmpsModels emp,
+    required EmployeesModel emp,
   }) async {
     emit(CreateEmpLoading());
     try {
@@ -170,7 +170,7 @@ class NewEmpCubit extends Cubit<NewEmpState> {
 
   Future<String?> uploadPhotoAndAddEmpInfo({
     required String department,
-    required EmpsModels emp,
+    required EmployeesModel emp,
   }) async {
     emit(UploadImageLoading());
     try {

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'bottom_sheet_emp_data/bottom_sheet_extra_day.dart';
@@ -19,26 +18,22 @@ class OnWorkInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          BottomSheetEMPSalaryAndIncentive(widget: widget),
-          const SizedBox(height: 15),
-          BottomSheetEMPExtraDay(widget: widget),
-          SizedBox(
-              height: widget.departmentsModel.extraDayForEmp! == 0
-                  ? 0
-                  : 15),
-          BottomSheetEMPDayExtraHoure(widget: widget),
-          const SizedBox(height: 15),
-          BottomSheetEMPNightShiftExtraHour(widget: widget),
-          SizedBox(
-              height: widget.departmentsModel
-                          .extraNightShiftHourForEmp! ==
-                      0
-                  ? 0
-                  : 15),
-          BottomSheetEMPBankAcc(widget: widget),
-        ],
-      );
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        BottomSheetEMPSalaryAndIncentive(widget: widget),
+        const SizedBox(height: 15),
+        BottomSheetEMPExtraDay(widget: widget),
+        SizedBox(height: widget.departmentsModel.extraDayForEmp! == 0 ? 0 : 15),
+        BottomSheetEMPDayExtraHoure(widget: widget),
+        const SizedBox(height: 15),
+        BottomSheetEMPNightShiftExtraHour(widget: widget),
+        SizedBox(
+            height: widget.departmentsModel.extraNightShiftHourForEmp! == 0
+                ? 0
+                : 15),
+        BottomSheetEMPBankAcc(widget: widget),
+        SizedBox(height: widget.departmentsModel.extraDayForEmp! == 0 ? 0 : 15),
+      ],
+    );
   }
 }

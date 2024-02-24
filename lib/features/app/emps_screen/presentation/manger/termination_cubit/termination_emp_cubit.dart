@@ -16,7 +16,7 @@ class TerminationEmpCubit extends Cubit<TerminationEmpState> {
   Future<void> fetchEmpCompanies({required String departmentId}) async {
     emit(Loading());
     try {
-      List<EmpsModels> empList = await _getEmpList(departmentId);
+      List<EmployeesModel> empList = await _getEmpList(departmentId);
       empList.sort((a, b) => a.empId!.compareTo(b.empId!));
 
       emit(SuccessSubCollection(empList));
@@ -25,8 +25,8 @@ class TerminationEmpCubit extends Cubit<TerminationEmpState> {
     }
   }
 
-  Future<List<EmpsModels>> _getEmpList(String departmentId) async {
-    List<EmpsModels> empList = [];
+  Future<List<EmployeesModel>> _getEmpList(String departmentId) async {
+    List<EmployeesModel> empList = [];
 
     QuerySnapshot? data = await _service.getSubCollectionData(
       departmentCollection: FBFirestoreName.departmentCollection,
@@ -37,7 +37,7 @@ class TerminationEmpCubit extends Cubit<TerminationEmpState> {
 
     if (data != null && data.docs.isNotEmpty) {
       for (var employeeDoc in data.docs) {
-        EmpsModels data = EmpsModels.fromDocumentSnapshot(employeeDoc);
+        EmployeesModel data = EmployeesModel.fromDocumentSnapshot(employeeDoc);
         empList.add(data);
       }
     }

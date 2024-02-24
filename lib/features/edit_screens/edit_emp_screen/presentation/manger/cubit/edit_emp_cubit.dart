@@ -39,7 +39,7 @@ class EditEmpCubit extends Cubit<EditEmpState> {
   }
 
   Future<void> update({
-    required EmpsModels emp,
+    required EmployeesModel emp,
   }) async {
     emit(UpdateEmpLoading());
     try {

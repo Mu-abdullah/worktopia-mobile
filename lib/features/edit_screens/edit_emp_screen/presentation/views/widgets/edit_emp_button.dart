@@ -40,7 +40,7 @@ class UpdateEmpButton extends StatelessWidget {
     return CustomButton(
       onPress: () {
         if (formKey.currentState!.validate()) {
-          final data = EmpsModels(
+          final data = EmployeesModel(
             empId: empID.text,
             empAddress: address.text,
             empBankAcc: bankAcc.text,

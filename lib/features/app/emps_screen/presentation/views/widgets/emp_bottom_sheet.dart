@@ -23,7 +23,7 @@ class EmpBottomSheet extends StatefulWidget {
     required this.model,
     required this.departmentsModel,
   });
-  final EmpsModels model;
+  final EmployeesModel model;
   final DepartmentsModel departmentsModel;
   @override
   State<EmpBottomSheet> createState() => _EmpBottomSheetState();
@@ -81,34 +81,33 @@ class EmpDataWebView extends StatelessWidget {
                       width: 20,
                     ),
                     Expanded(
-                        
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            BottomSheetEMPName(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPID(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPStatus(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetStartJob(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPID(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPAddress(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPPhoneNumber(widget: widget),
-                            const SizedBox(height: 15),
-                            BottomSheetEMPnID(widget: widget),
-                            const SizedBox(height: 15),
-                            SizedBox(
-                              child: widget.model.jobStatus ==
-                                      FBFirestoreName.empJobStatusOnWork
-                                  ? OnWorkInfo(widget: widget)
-                                  : ResigendAndTerminationInfo(widget: widget),
-                            ),
-                          ],
-                        )),
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        BottomSheetEMPName(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPID(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPStatus(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetStartJob(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPID(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPAddress(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPPhoneNumber(widget: widget),
+                        const SizedBox(height: 15),
+                        BottomSheetEMPnID(widget: widget),
+                        const SizedBox(height: 15),
+                        SizedBox(
+                          child: widget.model.jobStatus ==
+                                  FBFirestoreName.empJobStatusOnWork
+                              ? OnWorkInfo(widget: widget)
+                              : ResigendAndTerminationInfo(widget: widget),
+                        ),
+                      ],
+                    )),
                   ],
                 ),
               ],
@@ -142,19 +141,19 @@ class EmpDataMobileLayouts extends StatelessWidget {
                 BottomSheetEMPImage(widget: widget),
                 const SizedBox(height: 10),
                 BottomSheetEMPName(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetEMPStatus(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetStartJob(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetEMPID(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetEMPAddress(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetEMPPhoneNumber(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 BottomSheetEMPnID(widget: widget),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 SizedBox(
                   child: widget.model.jobStatus ==
                           FBFirestoreName.empJobStatusOnWork

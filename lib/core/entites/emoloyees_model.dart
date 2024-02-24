@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class EmpsModels {
+class EmployeesModel {
   final String? empId;
   final String? departmentId;
   late final String? empImage;
@@ -16,7 +16,7 @@ class EmpsModels {
   final String? startJob;
   final String? endJob;
 
-  EmpsModels({
+  EmployeesModel({
     this.empId,
     this.departmentId,
     this.empImage,
@@ -33,9 +33,9 @@ class EmpsModels {
     this.endJob,
   });
 
-  factory EmpsModels.fromDocumentSnapshot(DocumentSnapshot snapshot) {
+  factory EmployeesModel.fromDocumentSnapshot(DocumentSnapshot snapshot) {
     Map<String, dynamic>? json = snapshot.data() as Map<String, dynamic>?;
-    return EmpsModels(
+    return EmployeesModel(
       empId: json?["empId"],
       departmentId: json?["departmentId"],
       empImage: json?["empImage"],

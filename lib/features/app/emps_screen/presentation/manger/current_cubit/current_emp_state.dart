@@ -1,5 +1,3 @@
-
-
 import '../../../../../../core/entites/emoloyees_model.dart';
 
 abstract class CurrentEmpState {}
@@ -9,7 +7,7 @@ class CurrentEmpInitial extends CurrentEmpState {}
 class Loading extends CurrentEmpState {}
 
 class SuccessSubCollection extends CurrentEmpState {
-  List<EmpsModels> departments;
+  List<EmployeesModel> departments;
   SuccessSubCollection(this.departments);
 }
 
@@ -21,6 +19,3 @@ class FailedSubCollection extends CurrentEmpState {
 class SuccessCurrentEmp extends CurrentEmpState {}
 
 class FaieldCurrentEmp extends CurrentEmpState {}
-
-
-

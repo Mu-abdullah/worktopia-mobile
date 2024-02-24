@@ -3,6 +3,7 @@ import 'package:worktopia/features/app/emps_screen/presentation/views/widgets/de
 
 import '../../features/app/auth/views/auth_screen.dart';
 import '../../features/app/emps_screen/presentation/views/employees.dart';
+import '../../features/app/emps_screen/presentation/views/widgets/search.dart';
 import '../../features/app/home_screen/presentation/views/home_screen.dart';
 import '../../features/app/splash_screen/splash_screen.dart';
 import '../../features/edit_screens/edit_department_screen/presentation/views/edit_department_screen.dart';
@@ -11,10 +12,8 @@ import '../../features/new_screens/new_department/presentation/views/departments
 import '../../features/new_screens/new_emp/presentation/views/new_emp_screen.dart';
 import '../entites/department_model.dart';
 import '../entites/emoloyees_model.dart';
-import '../widgets/image_preview.dart';
 
 abstract class AppRouter {
-  static const imagePreview = '/imagePreview';
   static const homeScreen = '/homeScreen';
   static const empScreen = '/empScreen';
   static const newEmpScreen = '/newEmpScreen';
@@ -24,14 +23,15 @@ abstract class AppRouter {
   static const authScreen = '/authScreen';
   static const splashScreen = '/splashScreen';
   static const departmentDetiles = '/departmentDetiles';
+  static const searchScreen = '/searchScreen';
 
   static final router = GoRouter(
     initialLocation: splashScreen,
     routes: [
       GoRoute(
-        path: imagePreview,
-        builder: (context, state) => ImagePreviewScreen(
-          imageUrl: state.extra as String,
+        path: searchScreen,
+        builder: (context, state) => SearchEmp(
+          scoop: state.extra as String,
         ),
       ),
       GoRoute(
@@ -58,7 +58,7 @@ abstract class AppRouter {
       GoRoute(
         path: editEmpScreen,
         builder: (context, state) => EditEmpScreen(
-          model: state.extra as EmpsModels,
+          model: state.extra as EmployeesModel,
         ),
       ),
       GoRoute(

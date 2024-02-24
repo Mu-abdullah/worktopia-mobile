@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -19,7 +18,7 @@ class EditBody extends StatefulWidget {
     required this.models,
   });
 
-  final EmpsModels models;
+  final EmployeesModel models;
   @override
   State<EditBody> createState() => _EditBodyState();
 }

@@ -56,18 +56,27 @@ class _TerminationEmpState extends State<TerminationEmp> {
                 height: MediaQuery.of(context)
                     .size
                     .height, // Adjust the height as needed
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return ListView.builder(
-                      itemCount: state.departments.length,
-                      itemBuilder: (context, index) {
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      child: state.departments.isEmpty
+                          ? null
+                          : _terminationEmpCount(state),
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: state.departments.length,
+                        itemBuilder: (context, index) {
+                          return EmployeeItem(
+                            scoop: widget.scoop,
+                            emp: state.departments[index],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
@@ -84,5 +93,11 @@ class _TerminationEmpState extends State<TerminationEmp> {
         }
       },
     );
+  }
+
+  TitleText _terminationEmpCount(SuccessSubCollection state) {
+    return TitleText(
+        text:
+            "عدد العمالة المستبعدة : ${state.departments.length.toString()} عامل");
   }
 }

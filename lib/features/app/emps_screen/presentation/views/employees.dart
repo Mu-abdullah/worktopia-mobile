@@ -27,7 +27,7 @@ class EmployeesScreen extends StatefulWidget {
 class _EmployeesScreenState extends State<EmployeesScreen> {
   late int currentIndex;
   late List<Widget> bodyItems;
-
+  var searchText = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -55,62 +55,96 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
       ],
       child: SafeArea(
         child: Scaffold(
-          body: DefaultTabController(
-            length: 3,
-            initialIndex: currentIndex,
-            child: NestedScrollView(
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
-                return [
-                  SliverAppBar(
-                    expandedHeight: kIsWeb ? 100 : 150,
-                    floating: false,
-                    pinned: true,
-                    flexibleSpace: FlexibleSpaceBar(
-                      centerTitle: true,
-                      title: DepartmentData(
-                        scoop: widget.scoop,
-                      ),
-                    ),
+          body: LayoutBuilder(
+            builder: (context, constraints) {
+              return DefaultTabController(
+                length: 3,
+                initialIndex: currentIndex,
+                child: NestedScrollView(
+                  headerSliverBuilder:
+                      (BuildContext context, bool innerBoxIsScrolled) {
+                    return [
+                      _sliverAppBar(constraints),
+                      _tabBarSliver(),
+                    ];
+                  },
+                  body: TabBarView(
+                    children: bodyItems,
                   ),
-                  SliverPersistentHeader(
-                    delegate: _SliverAppBarDelegate(
-                      const TabBar(
-                        indicatorColor: AppColor.navyColor,
-                        labelColor: Colors.black87,
-                        unselectedLabelColor: Colors.grey,
-                        dividerColor: AppColor.navyColor,
-                        labelStyle: TextStyle(
-                          fontFamily: Constant.notoArabicFontFamily,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        tabs: [
-                          Tab(
-                              icon: Icon(kIsWeb ? Icons.person : Iconsax.user),
-                              text: "العاملين"),
-                          Tab(
-                              icon: Icon(kIsWeb
-                                  ? Icons.dnd_forwardslash
-                                  : Iconsax.slash),
-                              text: "الاستقالة"),
-                          Tab(
-                              icon: Icon(kIsWeb
-                                  ? Icons.highlight_remove_outlined
-                                  : Iconsax.user_remove),
-                              text: "الاستبعاد"),
-                        ],
-                      ),
-                    ),
-                    pinned: true,
-                  ),
-                ];
-              },
-              body: TabBarView(
-                children: bodyItems,
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverPersistentHeader _tabBarSliver() {
+    return SliverPersistentHeader(
+      delegate: _SliverAppBarDelegate(
+        const TabBar(
+          indicatorColor: AppColor.navyColor,
+          labelColor: Colors.black87,
+          unselectedLabelColor: Colors.grey,
+          dividerColor: AppColor.navyColor,
+          labelStyle: TextStyle(
+            fontFamily: Constant.notoArabicFontFamily,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+          tabs: [
+            Tab(
+              icon: Icon(kIsWeb ? Icons.person : Iconsax.user),
+              text: "العاملين",
+            ),
+            Tab(
+              icon: Icon(kIsWeb ? Icons.dnd_forwardslash : Iconsax.slash),
+              text: "الاستقالة",
+            ),
+            Tab(
+              icon: Icon(kIsWeb
+                  ? Icons.highlight_remove_outlined
+                  : Iconsax.user_remove),
+              text: "الاستبعاد",
+            ),
+          ],
+        ),
+      ),
+      pinned: true,
+    );
+  }
+
+  SliverAppBar _sliverAppBar(BoxConstraints constraints) {
+    return SliverAppBar(
+      expandedHeight: constraints.maxWidth <= Constant.mobileWidth ? 150 : 100,
+      floating: false,
+      pinned: true,
+      flexibleSpace: FlexibleSpaceBar(
+        centerTitle: true,
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: DepartmentData(
+                scoop: widget.scoop,
               ),
             ),
-          ),
+            // IconButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => SearchEmp(
+            //             scoop: widget.scoop,
+            //           ),
+            //         ));
+            //   },
+            //   icon: const Icon(
+            //     Icons.search_outlined,
+            //   ),
+            // )
+          ],
         ),
       ),
     );

@@ -56,18 +56,26 @@ class _ResignedEmpState extends State<ResignedEmp> {
                 height: MediaQuery.of(context)
                     .size
                     .height, // Adjust the height as needed
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return ListView.builder(
-                      itemCount: state.departments.length,
-                      itemBuilder: (context, index) {
-                        return EmployeeItem(
-                          scoop: widget.scoop,
-                          emp: state.departments[index],
-                        );
-                      },
-                    );
-                  },
+                child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      child: state.departments.isEmpty
+                          ? null
+                          : _resignedEmpCount(state),
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: state.departments.length,
+                        itemBuilder: (context, index) {
+                          return EmployeeItem(
+                            scoop: widget.scoop,
+                            emp: state.departments[index],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );
@@ -84,5 +92,11 @@ class _ResignedEmpState extends State<ResignedEmp> {
         }
       },
     );
+  }
+
+  TitleText _resignedEmpCount(SuccessSubCollection state) {
+    return TitleText(
+        text:
+            "عدد العمالة المستقيلة : ${state.departments.length.toString()} عامل");
   }
 }

@@ -15,7 +15,7 @@ class EmployeeItem extends StatefulWidget {
     required this.emp,
     required this.scoop,
   });
-  final EmpsModels emp;
+  final EmployeesModel emp;
   final String scoop;
 
   @override

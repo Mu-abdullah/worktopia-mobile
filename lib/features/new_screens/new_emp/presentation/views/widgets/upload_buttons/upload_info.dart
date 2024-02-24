@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,7 +74,8 @@ class UploadUserInfo extends StatelessWidget {
           });
         }
       },
-      child: CustomButton( width: kIsWeb ? .35 : 1,
+      child: CustomButton(
+        width: kIsWeb ? .35 : 1,
         onPress: cubit.departmentValue == null || cubit.scoopValue == null
             ? () {
                 snackBar(
@@ -88,7 +88,7 @@ class UploadUserInfo extends StatelessWidget {
               }
             : () {
                 if (formKey.currentState!.validate()) {
-                  final data = EmpsModels(
+                  final data = EmployeesModel(
                     empId: empID.text,
                     empAddress: address.text,
                     empBankAcc: banckAcc.text,

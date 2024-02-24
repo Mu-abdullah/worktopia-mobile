@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:worktopia/core/utils/app_routs.dart';
+import 'package:worktopia/core/widgets/image_preview.dart';
 
 import '../../../../../../../core/utils/colors.dart';
 import '../emp_bottom_sheet.dart';
@@ -17,8 +16,16 @@ class BottomSheetEMPImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context)
-            .push(AppRouter.imagePreview, extra: widget.model.empImage);
+        // widget.model.empImage)
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ImagePreviewScreen(
+              imageTitle: widget.model.empName!,
+              imageUrl: widget.model.empImage!,
+            ),
+          ),
+        );
       },
       child: Align(
         alignment: Alignment.centerRight,
