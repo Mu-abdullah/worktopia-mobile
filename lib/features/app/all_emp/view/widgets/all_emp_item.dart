@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:worktopia/core/entites/department_model.dart';
 
 import '../../../../../core/entites/emoloyees_model.dart';
 import '../../../../../core/utils/colors.dart';
@@ -10,8 +10,10 @@ class AllEmpItem extends StatelessWidget {
   const AllEmpItem({
     super.key,
     required this.emp,
+    // required this.department,
   });
   final EmployeesModel emp;
+  // final DepartmentsModel department;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -22,12 +24,6 @@ class AllEmpItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(4),
           child: ListTile(
-            leading: CircleAvatar(
-              maxRadius: 30,
-              backgroundImage: NetworkImage(
-                emp.empImage!,
-              ),
-            ),
             title: TitleText(text: emp.empName!),
             subtitle: Row(
               children: [
@@ -38,10 +34,15 @@ class AllEmpItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 TitleText(
-                  text: emp.empDepartment!,
+                  text: emp.scoop!,
                   isTitle: false,
                   subTitleColor: AppColor.blackColor.withOpacity(0.5),
                 ),
+                // TitleText(
+                //   text: department.empSalary!,
+                //   isTitle: false,
+                //   subTitleColor: AppColor.blackColor.withOpacity(0.5),
+                // ),
               ],
             ),
           ),

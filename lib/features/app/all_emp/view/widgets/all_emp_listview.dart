@@ -42,7 +42,7 @@ class AllEmpListView extends StatelessWidget {
                       if (state is SuccessAllEmpState) {
                         return TitleText(
                             text:
-                                "جميع العمالة ${state.emps.length.toString()} عامل / عاملة");
+                                "جميع العمالة ${state.emps!.length.toString()} عامل / عاملة");
                       }
                       if (state is FailedAllEmpState) {
                         return const TitleText(text: "يوجد خطأ");
@@ -58,10 +58,11 @@ class AllEmpListView extends StatelessWidget {
                 if (state is SuccessAllEmpState) {
                   return Expanded(
                     child: ListView.builder(
-                      itemCount: state.emps.length,
+                      itemCount: state.emps!.length,
                       itemBuilder: (context, index) {
                         return AllEmpItem(
-                          emp: state.emps[index],
+                          // department: state.department![index],
+                          emp: state.emps![index],
                         );
                       },
                     ),
