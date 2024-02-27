@@ -32,7 +32,7 @@ class DrawerListView extends StatelessWidget {
     return [
       DrawerModel(
         buttonName: "اضافة عامل",
-        leading: kIsWeb ? Icons.person_outline : Iconsax.user,
+        leading: kIsWeb ? Icons.person_add_outlined : Iconsax.user_add,
         trailing: Icons.arrow_forward_ios_rounded,
         onTap: () {
           Navigator.pop(context);
@@ -67,6 +67,14 @@ class DrawerListView extends StatelessWidget {
       //     GoRouter.of(context).push(AppRouter.departmentScreen);
       //   },
       // ),
+      DrawerModel(
+        buttonName: "جميع العمالة",
+        leading: kIsWeb ? Icons.person : Iconsax.user,
+        trailing: Icons.arrow_forward_ios_rounded,
+        onTap: () {
+          GoRouter.of(context).push(AppRouter.allEmp);
+        },
+      ),
     ];
   }
 }

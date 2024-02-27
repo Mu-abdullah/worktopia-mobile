@@ -29,11 +29,6 @@ class SearchEmpView extends StatefulWidget {
 }
 
 class _SearchEmpViewState extends State<SearchEmpView> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   var searchIDText = TextEditingController();
   var searchPhoneNumberText = TextEditingController();
   var searchNameText = TextEditingController();

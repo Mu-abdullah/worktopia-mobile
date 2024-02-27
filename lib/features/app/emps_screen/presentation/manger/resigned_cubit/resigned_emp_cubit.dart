@@ -30,7 +30,7 @@ class ResignedEmpCubit extends Cubit<ResignedEmpState> {
     QuerySnapshot? data = await _service.getSubCollectionData(
       departmentCollection: FBFirestoreName.departmentCollection,
       departmentId: departmentId,
-      subCollection: FBFirestoreName.empCollection,
+      subCollection: FBFirestoreName.empSubCollection,
       jobStatus: FBFirestoreName.empJobStatusResigned,
     );
 

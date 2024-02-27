@@ -95,14 +95,16 @@ class _EmployeeItemState extends State<EmployeeItem> {
                   children: [
                     TitleText(
                       isTitle: false,
-                      text: "رقم القيد: ${widget.emp.empId!}",
+                      text: widget.emp.empId!,
                       subTitleColor: AppColor.blackColor.withOpacity(.5),
                     ),
-                    const Spacer(),
-                    TitleText(
-                      isTitle: false,
-                      text: widget.emp.scoop!,
-                      subTitleColor: AppColor.blackColor.withOpacity(.5),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: TitleText(
+                        isTitle: false,
+                        text: widget.emp.scoop!,
+                        subTitleColor: AppColor.blackColor.withOpacity(.5),
+                      ),
                     ),
                   ],
                 ),

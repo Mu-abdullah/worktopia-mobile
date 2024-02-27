@@ -39,8 +39,9 @@ class SearchFields extends StatelessWidget {
                 maxLines: 1,
                 onChange: (value) {
                   searchEmpCubit.search(
-                      empId: value,
-                      colllectinID: FBFirestoreName.dDocumentClean);
+                    empId: value,
+                    colllectinID: collectionID(),
+                  );
                 },
                 validate: (value) {
                   if (value.isEmpty) {
@@ -63,8 +64,9 @@ class SearchFields extends StatelessWidget {
                 maxLines: 1,
                 onChange: (value) {
                   searchEmpCubit.search(
-                      empPhoneNumber: value,
-                      colllectinID: FBFirestoreName.dDocumentClean);
+                    empPhoneNumber: value,
+                    colllectinID: collectionID(),
+                  );
                 },
                 validate: (value) {
                   if (value.isEmpty) {
@@ -87,7 +89,9 @@ class SearchFields extends StatelessWidget {
           maxLines: 1,
           onChange: (value) {
             searchEmpCubit.search(
-                empName: value, colllectinID: FBFirestoreName.dDocumentClean);
+              empName: value,
+              colllectinID: collectionID(),
+            );
           },
           validate: (value) {
             if (value.isEmpty) {

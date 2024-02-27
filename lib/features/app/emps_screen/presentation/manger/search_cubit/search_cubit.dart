@@ -17,7 +17,7 @@ class SearchEmpCubit extends Cubit<List<EmployeesModel>> {
       Query query = FirebaseFirestore.instance
           .collection(FBFirestoreName.departmentCollection)
           .doc(colllectinID)
-          .collection(FBFirestoreName.empCollection);
+          .collection(FBFirestoreName.empSubCollection);
 
       if (empName != null) {
         query = query.where("empName", isGreaterThanOrEqualTo: empName);

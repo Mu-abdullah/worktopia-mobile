@@ -67,7 +67,7 @@ class FirebaseService {
   }) async {
     final CollectionReference empCollection = departmentCollection
         .doc(departmentId)
-        .collection(FBFirestoreName.empCollection);
+        .collection(FBFirestoreName.empSubCollection);
     await empCollection.doc(empID).set(employeeData.toJson());
   }
   //////////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ class FirebaseService {
   }) async {
     final CollectionReference empCollection = departmentCollection
         .doc(departmentId)
-        .collection(FBFirestoreName.empCollection);
+        .collection(FBFirestoreName.empSubCollection);
     await empCollection.doc(empID).update(employeeData.toJson());
   }
 

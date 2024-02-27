@@ -1,6 +1,6 @@
 class FBFirestoreName {
   static const String companyCollection = "companies";
-  static const String empCollection = "emp";
+  static const String empSubCollection = "emp";
   static const String departmentCollection = "departments";
 
   static const String dDocumentBuffet = "Canteen";

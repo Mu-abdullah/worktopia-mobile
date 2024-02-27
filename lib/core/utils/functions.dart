@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../helper/firebase_names.dart';
+
 String randomId = generateDocumentId();
 
 String generateDocumentId() {
@@ -37,5 +39,16 @@ numberOnly(value, {required contrroler}) {
       contrroler.text =
           contrroler.text.substring(0, contrroler.text.length - 1);
     }
+  }
+}
+
+String jobStatus({required String model}) {
+  if (model == FBFirestoreName.empJobStatusResigned) {
+    return "استقالة";
+  }
+  if (model == FBFirestoreName.empJobStatusTermination) {
+    return "استبعاد";
+  } else {
+    return "على قوة العمل";
   }
 }
