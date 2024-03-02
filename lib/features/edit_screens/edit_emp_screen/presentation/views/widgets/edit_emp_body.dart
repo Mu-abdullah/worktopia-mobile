@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../../core/utils/app_routs.dart';
 import '../../../../../../core/utils/colors.dart';
 import '../../../../../../core/widgets/custom_snack_bar.dart';
@@ -106,7 +106,7 @@ class _EditBodyState extends State<EditBody> {
 
   void _listener(context, state) {
     if (state is UpdateEmpLoading) {
-      showCustomProgressIndicator(context, "جاري تعديل البيانات");
+      showCustomProgressIndicator(context: context, text:  "جاري تعديل البيانات");
     }
     if (state is UpdateEmpSuccess) {
       Future.delayed(const Duration(seconds: 2), () {

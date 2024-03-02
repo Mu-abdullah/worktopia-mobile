@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/helper/firebase_names.dart';
-import '../../../../../../core/utils/tables_name.dart';
+import '../../../../../../core/utils/functions.dart';
 import '../../../../../../core/widgets/custom_text_field.dart';
 import '../../manger/search_cubit/search_cubit.dart';
 
@@ -40,7 +39,7 @@ class SearchFields extends StatelessWidget {
                 onChange: (value) {
                   searchEmpCubit.search(
                     empId: value,
-                    colllectinID: collectionID(),
+                    colllectinID: collectionID(scoop),
                   );
                 },
                 validate: (value) {
@@ -65,7 +64,7 @@ class SearchFields extends StatelessWidget {
                 onChange: (value) {
                   searchEmpCubit.search(
                     empPhoneNumber: value,
-                    colllectinID: collectionID(),
+                    colllectinID: collectionID(scoop),
                   );
                 },
                 validate: (value) {
@@ -90,7 +89,7 @@ class SearchFields extends StatelessWidget {
           onChange: (value) {
             searchEmpCubit.search(
               empName: value,
-              colllectinID: collectionID(),
+              colllectinID: collectionID(scoop),
             );
           },
           validate: (value) {
@@ -104,17 +103,5 @@ class SearchFields extends StatelessWidget {
     );
   }
 
-  String collectionID() {
-    if (scoop == TableName.supplyEmp) {
-      return FBFirestoreName.dDocumentSupplyEmp;
-    } else if (scoop == TableName.buffet) {
-      return FBFirestoreName.dDocumentBuffet;
-    } else if (scoop == TableName.clean) {
-      return FBFirestoreName.dDocumentClean;
-    } else if (scoop == TableName.farm) {
-      return FBFirestoreName.dDocumentZra3a;
-    } else {
-      return FBFirestoreName.dDocumentAntiReed;
-    }
-  }
+ 
 }

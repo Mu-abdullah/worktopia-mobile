@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:worktopia/core/helper/firebase_names.dart';
 
-import '../entites/department_model.dart';
-import '../entites/emoloyees_model.dart';
+import '../entities/department_model.dart';
+import '../entities/emoloyees_model.dart';
 
 class FirebaseService {
   final CollectionReference departmentCollection =

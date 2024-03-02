@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../../core/utils/app_routs.dart';
 import '../../../../../../../core/utils/colors.dart';
@@ -42,7 +42,7 @@ class UploadUserInfo extends StatelessWidget {
     return BlocListener<NewEmpCubit, NewEmpState>(
       listener: (context, state) {
         if (state is CreateEmpLoading) {
-          showCustomProgressIndicator(context, "جاري تحميل بيانات العامل");
+          showCustomProgressIndicator(context: context, text:  "جاري تحميل بيانات العامل");
         }
         if (state is CreateEmpSuccess) {
           Future.delayed(
@@ -52,7 +52,7 @@ class UploadUserInfo extends StatelessWidget {
             Navigator.pop(context);
             snackBar(context,
                 contentText: "تم تحميل البيانات بنجاح", seconds: 2);
-            GoRouter.of(context).pop(AppRouter.homeScreen);
+            GoRouter.of(context).pop(AppRouter.newHomeScreen);
           });
         }
         if (state is CreateEmpFailure) {

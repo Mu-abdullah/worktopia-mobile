@@ -40,12 +40,12 @@ class _DepartmentBodyState extends State<DepartmentBody> {
     return BlocConsumer<DepartmentCubit, DepartmentState>(
       listener: (context, state) {
         if (state is CreateDepartmentLoading) {
-          showCustomProgressIndicator(context, "جاري تحميل البيانات");
+          showCustomProgressIndicator(context: context, text:  "جاري تحميل البيانات");
         }
         if (state is CreateDepartmentSuccess) {
           Future.delayed(const Duration(seconds: 3), () {
             Navigator.pop(context);
-            GoRouter.of(context).pop(AppRouter.homeScreen);
+            GoRouter.of(context).pop(AppRouter.newHomeScreen);
             snackBar(
               context,
               contentText: "تم انشاء القسم بنجاح",

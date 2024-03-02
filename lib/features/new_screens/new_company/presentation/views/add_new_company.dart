@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../../core/entites/company_model.dart';
+import '../../../../../core/entities/company_model.dart';
 import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/functions.dart';
 import '../../../../../core/widgets/custom_button.dart';

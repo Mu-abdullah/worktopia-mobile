@@ -5,7 +5,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../../../../core/utils/app_routs.dart';
 import '../../../../../../../core/widgets/custom_button.dart';
-import '../emp_bottom_sheet.dart';
+import '../emp_details_screen.dart';
 
 class BottomSheetsButtons extends StatelessWidget {
   const BottomSheetsButtons({
@@ -13,7 +13,7 @@ class BottomSheetsButtons extends StatelessWidget {
     required this.widget,
   });
 
-  final EmpBottomSheet widget;
+  final EmpDetailsScreen widget;
 
   @override
   Widget build(BuildContext context) {

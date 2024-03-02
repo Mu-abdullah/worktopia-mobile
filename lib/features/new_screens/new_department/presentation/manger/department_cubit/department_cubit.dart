@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/entites/department_model.dart';
+import '../../../../../../core/entities/department_model.dart';
 import '../../../../../../core/helper/fire_base_services.dart';
 import '../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../core/utils/tables_name.dart';

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/entites/department_model.dart';
+import '../../../../../core/entities/department_model.dart';
 import '../../../../../core/widgets/default_texts.dart';
 import '../manger/cubit/edit_department_cubit.dart';
 import 'widgets/edit_department_body.dart';

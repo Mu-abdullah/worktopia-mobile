@@ -41,7 +41,7 @@ class _AddNewEmpState extends State<AddNewEmp> {
     return BlocConsumer<NewEmpCubit, NewEmpState>(
       listener: (context, state) {
         if (state is UploadImageLoading) {
-          showCustomProgressIndicator(context, "جاري تحميل صورة العامل");
+          showCustomProgressIndicator(context: context, text:  "جاري تحميل صورة العامل");
         }
         if (state is UploadImageSuccess) {
           Future.delayed(

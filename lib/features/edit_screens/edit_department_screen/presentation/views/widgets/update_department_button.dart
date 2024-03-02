@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/entites/department_model.dart';
+import '../../../../../../core/entities/department_model.dart';
 import '../../../../../../core/utils/app_routs.dart';
 import '../../../../../../core/utils/colors.dart';
 import '../../../../../../core/widgets/custom_button.dart';
@@ -90,7 +90,7 @@ class UpdateDepartmentButton extends StatelessWidget {
 
   void _listener(context, state) {
       if (state is LoadingUpdateDepartment) {
-        showCustomProgressIndicator(context, "جاري تعديل البيانات");
+        showCustomProgressIndicator(context: context, text:  "جاري تعديل البيانات");
       }
       if (state is SuccessUpdateDepartment) {
         Future.delayed(const Duration(seconds: 2), () {

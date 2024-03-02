@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import 'default_texts.dart';
 
-void showCustomProgressIndicator(context, String text) {
+void showCustomProgressIndicator({required BuildContext context,required String text}) {
   AlertDialog alertDialog = AlertDialog(
     backgroundColor: Colors.transparent,
     elevation: 0,

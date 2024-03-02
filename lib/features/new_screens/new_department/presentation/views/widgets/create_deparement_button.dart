@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/entites/department_model.dart';
+import '../../../../../../core/entities/department_model.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import '../../manger/department_cubit/department_cubit.dart';
 

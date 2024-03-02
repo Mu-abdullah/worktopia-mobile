@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../helper/firebase_names.dart';
+import 'tables_name.dart';
 
 String randomId = generateDocumentId();
 
@@ -52,3 +53,19 @@ String jobStatus({required String model}) {
     return "على قوة العمل";
   }
 }
+
+
+String collectionID(scoop) {
+    if (scoop == TableName.supplyEmp) {
+      return FBFirestoreName.dDocumentSupplyEmp;
+    } else if (scoop == TableName.buffet) {
+      return FBFirestoreName.dDocumentBuffet;
+    } else if (scoop == TableName.clean) {
+      return FBFirestoreName.dDocumentClean;
+    } else if (scoop == TableName.farm) {
+      return FBFirestoreName.dDocumentZra3a;
+    } else {
+      return FBFirestoreName.dDocumentAntiReed;
+    }
+  }
+

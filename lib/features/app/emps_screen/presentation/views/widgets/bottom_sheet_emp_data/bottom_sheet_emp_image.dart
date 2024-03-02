@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:worktopia/core/widgets/image_preview.dart';
 
 import '../../../../../../../core/utils/colors.dart';
-import '../emp_bottom_sheet.dart';
+import '../emp_details_screen.dart';
 
 class BottomSheetEMPImage extends StatelessWidget {
   const BottomSheetEMPImage({
@@ -10,7 +10,7 @@ class BottomSheetEMPImage extends StatelessWidget {
     required this.widget,
   });
 
-  final EmpBottomSheet widget;
+  final EmpDetailsScreen widget;
 
   @override
   Widget build(BuildContext context) {

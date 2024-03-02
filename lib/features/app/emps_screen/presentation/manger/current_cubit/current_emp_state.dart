@@ -1,4 +1,5 @@
-import '../../../../../../core/entites/emoloyees_model.dart';
+
+import '../../../../../../core/entities/emoloyees_model.dart';
 
 abstract class CurrentEmpState {}
 
@@ -15,7 +16,3 @@ class FailedSubCollection extends CurrentEmpState {
   final String error;
   FailedSubCollection(this.error);
 }
-
-class SuccessCurrentEmp extends CurrentEmpState {}
-
-class FaieldCurrentEmp extends CurrentEmpState {}

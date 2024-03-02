@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../../core/helper/fire_base_services.dart';
 import '../../../../../../core/helper/firebase_names.dart';
 import 'edit_emp_state.dart';

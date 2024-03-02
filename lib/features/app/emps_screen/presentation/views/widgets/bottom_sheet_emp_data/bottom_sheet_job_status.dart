@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/utils/functions.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
-import '../emp_bottom_sheet.dart';
+import '../emp_details_screen.dart';
 
 class BottomSheetEMPStatus extends StatelessWidget {
   const BottomSheetEMPStatus({
@@ -11,7 +11,7 @@ class BottomSheetEMPStatus extends StatelessWidget {
     required this.widget,
   });
 
-  final EmpBottomSheet widget;
+  final EmpDetailsScreen widget;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,4 @@ class BottomSheetEMPStatus extends StatelessWidget {
       subTitleColor: AppColor.blackColor,
     );
   }
-
- 
 }

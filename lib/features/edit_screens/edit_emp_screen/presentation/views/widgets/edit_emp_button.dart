@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 import '../../manger/cubit/edit_emp_cubit.dart';
 import 'edit_emp_body.dart';

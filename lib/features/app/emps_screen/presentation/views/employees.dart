@@ -2,11 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:worktopia/core/entities/department_model.dart';
 
-import '../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../core/utils/colors.dart';
 import '../../../../../../core/utils/constant.dart';
-import '../../../../../../core/utils/tables_name.dart';
 import '../manger/current_cubit/current_emp_cubit.dart';
 import '../manger/department_cubit/department_data_cubit.dart';
 import '../manger/resigned_cubit/resigned_emp_cubit.dart';
@@ -17,8 +16,12 @@ import 'widgets/emp/resigned_emp.dart';
 import 'widgets/emp/termination_emp.dart';
 
 class EmployeesScreen extends StatefulWidget {
-  const EmployeesScreen({super.key, required this.scoop});
-  final String scoop;
+  const EmployeesScreen({
+    super.key,
+    required this.departmentModel,
+  });
+
+  final DepartmentsModel departmentModel;
 
   @override
   State<EmployeesScreen> createState() => _EmployeesScreenState();
@@ -33,9 +36,15 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
     super.initState();
     currentIndex = 0;
     bodyItems = [
-      CurrentEmp(scoop: widget.scoop),
-      ResignedEmp(scoop: widget.scoop),
-      TerminationEmp(scoop: widget.scoop),
+      CurrentEmp(
+        docId: widget.departmentModel.departmentId!,
+        companyForNow: widget.departmentModel.departmentCompanyForNow!,
+        departmentName: widget.departmentModel.departmentName!,
+        incective: widget.departmentModel.empsIncentive,
+        salary: widget.departmentModel.empSalary,
+      ),
+      ResignedEmp(docId: widget.departmentModel.departmentId!),
+      TerminationEmp(docId: widget.departmentModel.departmentId!),
     ];
   }
 
@@ -49,7 +58,7 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
         BlocProvider(
           create: (context) => DepartmentDataCubit()
             ..fetchDepartmentData(
-              docId: collectionID(),
+              docId: widget.departmentModel.departmentId!,
             ),
         ),
       ],
@@ -89,10 +98,10 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
           unselectedLabelColor: Colors.grey,
           dividerColor: AppColor.navyColor,
           labelStyle: TextStyle(
-            fontFamily: Constant.notoArabicFontFamily,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+              fontFamily: Constant.notoArabicFontFamily,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: AppColor.whiteColor),
           tabs: [
             Tab(
               icon: Icon(kIsWeb ? Icons.person : Iconsax.user),
@@ -117,51 +126,17 @@ class _EmployeesScreenState extends State<EmployeesScreen> {
 
   SliverAppBar _sliverAppBar(BoxConstraints constraints) {
     return SliverAppBar(
-      expandedHeight: constraints.maxWidth <= Constant.mobileWidth ? 150 : 100,
-      floating: false,
-      pinned: true,
+      expandedHeight: constraints.maxWidth <= Constant.mobileWidth ? 130 : 100,
+      floating: true,
+      pinned: false,
+      backgroundColor: AppColor.babyBlueColor,
       flexibleSpace: FlexibleSpaceBar(
-        centerTitle: true,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(
-              child: DepartmentData(
-                scoop: widget.scoop,
-              ),
-            ),
-            // IconButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => SearchEmp(
-            //             scoop: widget.scoop,
-            //           ),
-            //         ));
-            //   },
-            //   icon: const Icon(
-            //     Icons.search_outlined,
-            //   ),
-            // )
-          ],
+        title: DepartmentData(
+          company:
+              "${widget.departmentModel.departmentName}: ${widget.departmentModel.departmentCompanyForNow!}",
         ),
       ),
     );
-  }
-
-  String collectionID() {
-    if (widget.scoop == TableName.supplyEmp) {
-      return FBFirestoreName.dDocumentSupplyEmp;
-    } else if (widget.scoop == TableName.buffet) {
-      return FBFirestoreName.dDocumentBuffet;
-    } else if (widget.scoop == TableName.clean) {
-      return FBFirestoreName.dDocumentClean;
-    } else if (widget.scoop == TableName.farm) {
-      return FBFirestoreName.dDocumentZra3a;
-    } else {
-      return FBFirestoreName.dDocumentAntiReed;
-    }
   }
 }
 
@@ -177,6 +152,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     return Container(
+      color: AppColor.babyBlueColor,
       child: tabBar,
     );
   }

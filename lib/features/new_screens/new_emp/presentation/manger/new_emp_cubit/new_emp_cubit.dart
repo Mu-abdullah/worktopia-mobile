@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as fire_storage;
 
-import '../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../../core/helper/fire_base_services.dart';
 import '../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../core/utils/tables_name.dart';

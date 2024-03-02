@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../core/entities/emoloyees_model.dart';
 import '../../../../../core/widgets/default_texts.dart';
 import '../manger/cubit/edit_emp_cubit.dart';
 import 'widgets/edit_emp_body.dart';

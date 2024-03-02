@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         FirebaseAuth.instance.authStateChanges().listen((user) {
           if (user != null && CashHelperData.cashHelperUserValue != null) {
-            GoRouter.of(context).pushReplacement(AppRouter.homeScreen);
+            GoRouter.of(context).pushReplacement(AppRouter.newHomeScreen);
           } else {
             GoRouter.of(context).pushReplacement(AppRouter.authScreen);
           }

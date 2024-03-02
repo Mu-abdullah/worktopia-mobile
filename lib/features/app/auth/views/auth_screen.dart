@@ -78,71 +78,69 @@ class _AuthScreenState extends State<AuthScreen> {
 
   Center _authWebLayouts(BuildContext context, AuthCubit cubit) {
     return Center(
-                    child: SizedBox(
-                      width: CustomSize.width(context, .35),
-                      child: GlassContainer(
-                        widget: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Form(
-                            key: formKey,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                const AppImage(),
-                                const SizedBox(height: 50),
-                                const TitleAndAdministration(),
-                                const SizedBox(height: 20),
-                                Mail(mail: mail, wanted: _wanted),
-                                const SizedBox(height: 10),
-                                Password(password: password, wanted: _wanted),
-                                const SizedBox(height: 10),
-                                CustomButton(
-                                  titleColor: AppColor.navyColor,
-                                  backgroungColor: AppColor.yellowColor,
-                                  buttonName: "تسجيل الدخول",
-                                  onPress: () async {
-                                    if (formKey.currentState!.validate()) {
-                                      cubit.auth(
-                                        mail: mail.text,
-                                        password: password.text,
-                                      );
-                                      CacheHelper.saveData(
-                                        key: CashHelperData
-                                            .cashHelperUserMailKey,
-                                        value: mail.text,
-                                      );
-                                      FocusScope.of(context).unfocus();
-                                    }
-                                  },
-                                ),
-                                Row(
-                                  children: [
-                                    Checkbox(
-                                      value: remmberMe,
-                                      activeColor: AppColor.yellowColor,
-                                      checkColor: AppColor.navyColor,
-                                      shape: const CircleBorder(
-                                          eccentricity: .5),
-                                      onChanged: (bool? value) {
-                                        setState(() {
-                                          remmberMe = value!;
-                                        });
-                                      },
-                                    ),
-                                    const TitleText(
-                                      text: "تذكرني",
-                                      isTitle: false,
-                                      // subTitleColor: AppColor.whiteColor,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+      child: SizedBox(
+        width: CustomSize.width(context, .35),
+        child: GlassContainer(
+          widget: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const AppImage(),
+                  const SizedBox(height: 50),
+                  const TitleAndAdministration(),
+                  const SizedBox(height: 20),
+                  Mail(mail: mail, wanted: _wanted),
+                  const SizedBox(height: 10),
+                  Password(password: password, wanted: _wanted),
+                  const SizedBox(height: 10),
+                  CustomButton(
+                    titleColor: AppColor.navyColor,
+                    backgroungColor: AppColor.yellowColor,
+                    buttonName: "تسجيل الدخول",
+                    onPress: () async {
+                      if (formKey.currentState!.validate()) {
+                        cubit.auth(
+                          mail: mail.text,
+                          password: password.text,
+                        );
+                        CacheHelper.saveData(
+                          key: CashHelperData.cashHelperUserMailKey,
+                          value: mail.text,
+                        );
+                        FocusScope.of(context).unfocus();
+                      }
+                    },
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: remmberMe,
+                        activeColor: AppColor.yellowColor,
+                        checkColor: AppColor.navyColor,
+                        shape: const CircleBorder(eccentricity: .5),
+                        onChanged: (bool? value) {
+                          setState(() {
+                            remmberMe = value!;
+                          });
+                        },
                       ),
-                    ),
-                  );
+                      const TitleText(
+                        text: "تذكرني",
+                        isTitle: false,
+                        // subTitleColor: AppColor.whiteColor,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Center _authTabletLayouts(BuildContext context, AuthCubit cubit) {
@@ -278,7 +276,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _loginListener(context, state) {
     if (state is LoadingAuth) {
-      showCustomProgressIndicator(context, "جاري تسجيل الدخول");
+      showCustomProgressIndicator(context: context, text: "جاري تسجيل الدخول");
     }
     if (state is SuccessAuth) {
       Future.delayed(
@@ -301,7 +299,7 @@ class _AuthScreenState extends State<AuthScreen> {
               builder: (context) => const UserNameBottomSheet(),
             );
           } else {
-            GoRouter.of(context).push(AppRouter.homeScreen);
+            GoRouter.of(context).push(AppRouter.newHomeScreen);
             snackBar(
               context,
               contentText: "تم تسجيل الدخول بنجاح",

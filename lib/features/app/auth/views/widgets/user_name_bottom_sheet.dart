@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -44,7 +43,8 @@ class _UserNameBottomSheetState extends State<UserNameBottomSheet> {
               child: CustomTextField(
                   hint: "يفضل كتابة الاسم باللغة العربية",
                   label: "الاسم",
-                  prefix: const Icon(kIsWeb?Icons.verified_user_outlined: Iconsax.user),
+                  prefix: const Icon(
+                      kIsWeb ? Icons.verified_user_outlined : Iconsax.user),
                   isPassword: false,
                   controller: name,
                   type: TextInputType.name,
@@ -72,7 +72,8 @@ class _UserNameBottomSheetState extends State<UserNameBottomSheet> {
                     Navigator.pop(context);
                     snackBar(context,
                         contentText: "تم تسجيل الاسم بنجاح", seconds: 3);
-                    GoRouter.of(context).pushReplacement(AppRouter.homeScreen);
+                    GoRouter.of(context)
+                        .pushReplacement(AppRouter.newHomeScreen);
                   });
                 }
               },

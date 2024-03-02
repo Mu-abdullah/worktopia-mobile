@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../core/helper/firebase_names.dart';
 import '../../../../../../../core/utils/colors.dart';
-import '../../../../../../../core/utils/tables_name.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../../../manger/termination_cubit/termination_emp_cubit.dart';
 import '../../../manger/termination_cubit/termination_emp_state.dart';
-import '../employee_item.dart';
+import '../employee_item_mobile.dart';
 
 class TerminationEmp extends StatefulWidget {
-  const TerminationEmp({super.key, required this.scoop});
-  final String scoop;
+  const TerminationEmp({super.key, required this.docId});
+  final String docId;
 
   @override
   State<TerminationEmp> createState() => _TerminationEmpState();
@@ -21,22 +19,8 @@ class _TerminationEmpState extends State<TerminationEmp> {
   @override
   void initState() {
     BlocProvider.of<TerminationEmpCubit>(context)
-        .fetchEmpCompanies(departmentId: collectionID());
+        .fetchEmpCompanies(departmentId: widget.docId);
     super.initState();
-  }
-
-  String collectionID() {
-    if (widget.scoop == TableName.supplyEmp) {
-      return FBFirestoreName.dDocumentSupplyEmp;
-    } else if (widget.scoop == TableName.buffet) {
-      return FBFirestoreName.dDocumentBuffet;
-    } else if (widget.scoop == TableName.clean) {
-      return FBFirestoreName.dDocumentClean;
-    } else if (widget.scoop == TableName.farm) {
-      return FBFirestoreName.dDocumentZra3a;
-    } else {
-      return FBFirestoreName.dDocumentAntiReed;
-    }
   }
 
   @override
@@ -69,8 +53,8 @@ class _TerminationEmpState extends State<TerminationEmp> {
                       child: ListView.builder(
                         itemCount: state.departments.length,
                         itemBuilder: (context, index) {
-                          return EmployeeItem(
-                            scoop: widget.scoop,
+                          return MobileEmployeeItem(
+                            departmentModel: widget.docId,
                             emp: state.departments[index],
                           );
                         },

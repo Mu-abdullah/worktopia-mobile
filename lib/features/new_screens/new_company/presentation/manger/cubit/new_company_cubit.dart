@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/entites/company_model.dart';
+import '../../../../../../core/entities/company_model.dart';
 import '../../../../../../core/helper/firebase_names.dart';
 import 'new_company_state.dart';
 

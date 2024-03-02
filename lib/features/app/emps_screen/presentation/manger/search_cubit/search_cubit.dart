@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:worktopia/core/entites/emoloyees_model.dart';
+import 'package:worktopia/core/entities/emoloyees_model.dart';
 
 import '../../../../../../core/helper/firebase_names.dart';
 

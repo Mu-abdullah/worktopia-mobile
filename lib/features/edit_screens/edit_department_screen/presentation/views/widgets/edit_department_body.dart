@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/entites/department_model.dart';
+import '../../../../../../core/entities/department_model.dart';
 import 'edit_feilds.dart';
 import 'update_department_button.dart';
 

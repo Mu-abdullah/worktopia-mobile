@@ -1,4 +1,4 @@
-import '../../../../../../core/entites/emoloyees_model.dart';
+import '../../../../../../core/entities/emoloyees_model.dart';
 
 abstract class ResignedEmpState {}
 
