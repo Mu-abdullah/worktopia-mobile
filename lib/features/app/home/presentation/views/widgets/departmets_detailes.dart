@@ -32,7 +32,7 @@ class _DepartmentDetilesScreenState extends State<DepartmentDetilesScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             children: [
               CompanyDetails(widget: widget),
               const SizedBox(height: 20),

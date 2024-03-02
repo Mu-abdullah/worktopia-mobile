@@ -58,7 +58,7 @@ class _NewHomeListViewState extends State<NewHomeListView> {
             maxLine: 5,
           );
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

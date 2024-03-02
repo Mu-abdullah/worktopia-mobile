@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:worktopia/core/utils/constant.dart';
 import 'package:worktopia/core/widgets/default_texts.dart';
@@ -26,7 +27,7 @@ class _EmpDetailsScreenState extends State<EmpDetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: TitleText(
-          text: widget.model.empName!,
+          text: kIsWeb ? widget.model.empName! : widget.model.scoop!,
           titleSize: 28,
         ),
       ),

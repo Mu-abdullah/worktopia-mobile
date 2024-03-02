@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/utils/functions.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../emp_details_screen.dart';
@@ -18,7 +17,7 @@ class BottomSheetEMPStatus extends StatelessWidget {
     return TitleText(
       isTitle: false,
       text: "حالة العمل: ${jobStatus(model: widget.model.jobStatus!)}",
-      subTitleColor: AppColor.blackColor,
+     
     );
   }
 }

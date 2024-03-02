@@ -69,7 +69,10 @@ class _CurrentEmpState extends State<CurrentEmp> {
                             ? GridView.builder(
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
-                                        childAspectRatio: 1.5,
+                                        childAspectRatio:constraints.maxWidth ==
+                                                Constant.mobileWidth
+                                            ? 1 : 1.4,
+                                        crossAxisSpacing: 1,
                                         crossAxisCount: constraints.maxWidth ==
                                                 Constant.mobileWidth
                                             ? 3

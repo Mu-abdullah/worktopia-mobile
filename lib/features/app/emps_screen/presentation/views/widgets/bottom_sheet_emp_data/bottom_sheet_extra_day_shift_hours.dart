@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../emp_details_screen.dart';
 
@@ -21,7 +20,7 @@ class BottomSheetEMPDayExtraHoure extends StatelessWidget {
               isTitle: false,
               text:
                   "اجر الساعة الاضافية  ${widget.departmentsModel.extraHourForEmp!.toString()} جنيه",
-              subTitleColor: AppColor.blackColor.withOpacity(.7),
+           
             ),
     );
   }

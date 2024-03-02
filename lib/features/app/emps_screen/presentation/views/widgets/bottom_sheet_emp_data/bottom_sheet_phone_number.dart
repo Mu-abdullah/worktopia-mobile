@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../emp_details_screen.dart';
 
@@ -21,7 +20,7 @@ class BottomSheetEMPPhoneNumber extends StatelessWidget {
       },
       child: TitleText(
         text: "رقم الهاتف: ${widget.model.empPhoneNumber!}",
-        subTitleColor: AppColor.blackColor.withOpacity(.7),
+       
         isTitle: false,
       ),
     );

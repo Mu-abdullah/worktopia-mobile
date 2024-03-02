@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/utils/colors.dart';
 import '../../../../../../../core/widgets/default_texts.dart';
 import '../emp_details_screen.dart';
 
@@ -19,7 +18,7 @@ class BottomSheetEMPExtraDay extends StatelessWidget {
           ? null
           : TitleText(
               text: haveExtraDay(),
-              subTitleColor: AppColor.blackColor.withOpacity(.7),
+            
               isTitle: false,
               maxLine: 2,
             ),

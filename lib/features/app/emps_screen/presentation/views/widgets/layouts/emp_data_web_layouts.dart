@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/helper/firebase_names.dart';
@@ -10,6 +11,7 @@ import '../bottom_sheet_emp_data/bottom_sheet_job_status.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_nid.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_phone_number.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_startjob.dart';
+import '../bottom_sheet_emp_data/bttom_bank_acc.dart';
 import '../emp_details_screen.dart';
 import '../on_work_info.dart';
 import '../termenation_resigend.dart';
@@ -67,7 +69,7 @@ class WebData extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // BottomSheetEMPName(widget: widget),
-          TitleText(text: widget.model.scoop!),
+          SizedBox(child: kIsWeb ? TitleText(text: widget.model.scoop!) : null),
           const SizedBox(height: 15),
           BottomSheetEMPID(widget: widget),
           const SizedBox(height: 15),
@@ -75,9 +77,9 @@ class WebData extends StatelessWidget {
           const SizedBox(height: 15),
           BottomSheetStartJob(widget: widget),
           const SizedBox(height: 15),
-          BottomSheetEMPID(widget: widget),
-          const SizedBox(height: 15),
           BottomSheetEMPAddress(widget: widget),
+          const SizedBox(height: 15),
+          BottomSheetEMPBankAcc(widget: widget),
           const SizedBox(height: 15),
           BottomSheetEMPPhoneNumber(widget: widget),
           const SizedBox(height: 15),

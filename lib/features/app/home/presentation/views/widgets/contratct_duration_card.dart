@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/colors.dart';
@@ -24,7 +23,8 @@ class ContarctDuration extends StatelessWidget {
           children: [
             const TitleText(
               text: "مدة العقد",
-              titleColor: Colors.white,
+              isTitle: false,
+              subTitleColor: Colors.white,
             ),
             const SizedBox(height: 5),
             TitleText(

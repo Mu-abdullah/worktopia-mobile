@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/colors.dart';
 import '../../../../../../core/widgets/default_texts.dart';
 import 'emp_details_screen.dart';
 
@@ -19,13 +18,13 @@ class ResigendAndTerminationInfo extends StatelessWidget {
       children: [
         TitleText(
           text: "تاريخ نهاية العمل: ${widget.model.endJob}",
-          subTitleColor: AppColor.blackColor.withOpacity(.7),
+          
           isTitle: false,
         ),
         const SizedBox(height: 15),
         TitleText(
           text: "سبب انهاء العمل: ${widget.model.endJobReaseon!}",
-          subTitleColor: AppColor.blackColor.withOpacity(.7),
+        
           isTitle: false,
         ),
       ],

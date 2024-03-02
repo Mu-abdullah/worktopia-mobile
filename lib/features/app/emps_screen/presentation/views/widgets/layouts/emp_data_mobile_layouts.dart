@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/helper/firebase_names.dart';
@@ -6,6 +7,7 @@ import '../bottom_sheet_emp_data/bottom_sheet_addres.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_bottons.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_emp_id.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_emp_image.dart';
+import '../bottom_sheet_emp_data/bottom_sheet_emp_name.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_job_status.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_nid.dart';
 import '../bottom_sheet_emp_data/bottom_sheet_phone_number.dart';
@@ -34,8 +36,11 @@ class EmpDataMobileLayouts extends StatelessWidget {
               children: [
                 BottomSheetEMPImage(widget: widget),
                 const SizedBox(height: 10),
-                // BottomSheetEMPName(widget: widget),
-                TitleText(text: widget.model.scoop!),
+                SizedBox(
+                    child: kIsWeb ? null : BottomSheetEMPName(widget: widget)),
+                SizedBox(
+                    child:
+                        kIsWeb ? TitleText(text: widget.model.scoop!) : null),
                 const SizedBox(height: 10),
                 BottomSheetEMPStatus(widget: widget),
                 const SizedBox(height: 10),
